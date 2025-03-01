@@ -5,271 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FashionHub Navbar</title>
+    <link rel="stylesheet" href="styles1.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #cdd9e2;
-        }
-
-        /* Navbar Styling */
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #233746;
-            padding: 10px 20px;
-            position: fixed;
-            width: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-
-        }
-
-        /* Logo */
-        .logo img {
-            width: 50px;
-            height: auto;
-        }
-
-        /* Search Bar */
-        .search-bar {
-            display: flex;
-            margin: 0 20px;
-            position: relative;
-            align-items: center;
-            background: #a7a1ff;
-            border-radius: 20px;
-            width: 600px;
-            height: 33px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-            padding-right: 40px;
-            background-color: #a7a1ff;
-            color: #0e0e0e;
-            font-size: 1.1rem;
-
-        }
-
-        .search-bar input::placeholder {
-            color: #0d0e0e;
-            opacity: 1;
-        }
-
-
-        .search-bar ion-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2em;
-            color: black;
-            cursor: pointer;
-            background: none;
-            border: none
-        }
-
-
-        /* Navigation Items */
-        .nav-items ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-items ul li {
-            position: relative;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            list-style: none;
-            z-index: 1;
-            right: 15px;
-        }
-
-        .nav-items ul li a {
-            position: relative;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .nav-items ul li a .icon {
-            position: relative;
-            display: block;
-            line-height: 75px;
-            font-size: 1.5em;
-            text-align: center;
-            transition: 0.5s;
-            color: #fff;
-        }
-
-        .nav-items ul li.active a .icon {
-            transform: translateY(-5px);
-        }
-
-        .nav-items ul li a .text {
-            position: absolute;
-            color: #fff;
-            font-weight: 400;
-            font-size: 0.75rem;
-            letter-spacing: 0.05rem;
-            transition: 0.5s;
-            opacity: 0;
-            transform: translateY(20px);
-            text-transform: capitalize;
-        }
-
-        .nav-items ul li.active a .text {
-            opacity: 1;
-            transform: translateY(15px);
-        }
-
-        .indicator {
-            position: absolute;
-            top: -3%;
-            width: 75px;
-            height: 75px;
-            left: 1135px;
-            background-color: #0097e6;
-            border-radius: 50%;
-            border: 6px solid #2d3a44;
-            transition: 0.5s;
-        }
-
-        .indicator::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -22px;
-            width: 20px;
-            height: 20px;
-            background: transparent;
-            border-top-right-radius: 30px;
-            box-shadow: 1px -10px 0 0 #2d3a44;
-        }
-
-        .indicator::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -22px;
-            width: 20px;
-            height: 20px;
-            background: transparent;
-            border-top-left-radius: 30px;
-            box-shadow: 1px -10px 0 0 #2d3a44;
-        }
-
-        .nav-items ul li:nth-child(1).active~.indicator {
-            transform: translateX(calc(70px*0));
-        }
-
-        .nav-items ul li:nth-child(2).active~.indicator {
-            transform: translateX(calc(70px*1));
-        }
-
-        .nav-items ul li:nth-child(3).active~.indicator {
-            transform: translateX(calc(70px*2));
-        }
-
-        .nav-items ul li:nth-child(4).active~.indicator {
-            transform: translateX(calc(70px*3));
-        }
-
-        .nav-items ul li:nth-child(5).active~.indicator {
-            transform: translateX(calc(70px*4));
-        }
-
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            /* Adjust height as needed */
-            background-image: url();
-            /* Replace with your image */
-            background-size: cover;
-            background-position: center;
-
-        }
-
-        .hero-section img {
-            width: 100%;
-            height: 100vh;
-        }
-
-        .hero-text {
-            position: absolute;
-            top: 60%;
-            left: 20%;
-            transform: translate(-35%, -35%);
-            font-size: 1.5rem;
-            text-align: center;
-
-        }
-
-        .hero-text h1 {
-            color: #088178;
-        }
-
-        .hero-text h4 {
-            padding: 0 80px;
-        }
-
-        .hero-text h2 {
-            padding: 0 80px;
-        }
-
-        .hero-text p {
-            padding: 0 80px;
-        }
-
-        .hero-text button {
-            background-image: url(button.png);
-            background-color: transparent;
-            color: #088178;
-            border: 0;
-            padding: 14px 80px 14px 65px;
-            background-repeat: no-repeat;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 15px;
-        }
-    </style>
 </head>
 
 <body>
-
     <nav class="navbar">
-        <!-- Logo -->
+       
         <div class="logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
                 alt="FashionHub Logo">
         </div>
-
-        <!-- Search Bar -->
+ 
         <div class="search-bar">
             <input type="text" placeholder="Search for products...">
             <ion-icon name="search-outline"></ion-icon>
@@ -320,7 +68,6 @@
                 <div class="indicator"></div>
             </ul>
         </div>
-
     </nav>
 
     <div class="hero-section">
@@ -332,8 +79,66 @@
             <p>Save more with coupons & up to 70% off! </p>
             <button>Shop Now</button>
         </div>
-
     </div>
+
+    <div class="feature" id="feature">
+        <div class="fe-box">
+            <img src="f1.png" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="f2.png" alt="">
+            <h6>Online Order</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="f3.png" alt="">
+            <h6>Save Money</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="f4.png" alt="">
+            <h6>Promotions</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="f5.png" alt="">
+            <h6>Happy Sell</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="f6.png" alt="">
+            <h6>F24/7 Support</h6>
+        </div>
+    </div>
+
+    <section class="product1" id="product1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="f1.jpg">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <div class="star">
+                        <a>
+                        <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                        <a>
+                        <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                        <a>
+                        <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                        <a>
+                        <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                        <a>
+                        <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+            </div>
+        </div>
+    </section>
 
     <script>
         const list = document.querySelectorAll('.list');
@@ -345,8 +150,6 @@
         list.forEach((item) => item.addEventListener('click', active));
         list1.forEach((item) => item.addEventListener('click', active));
     </script>
-
-
 
 </body>
 
