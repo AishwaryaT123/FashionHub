@@ -577,13 +577,11 @@
 
     <script>
         const list = document.querySelectorAll('.list');
-        const list1 = document.querySelector('list1')
         function active() {
             list.forEach((item) => item.classList.remove('active'));
             this.classList.add('active');
         }
         list.forEach((item) => item.addEventListener('click', active));
-        list1.forEach((item) => item.addEventListener('click', active));
     </script>
 
 </body>
