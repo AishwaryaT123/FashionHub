@@ -111,7 +111,7 @@
     <div class="product1" id="product1">
         
         <div class="pro-container">
-            <div class="pro">
+            <div class="pro" onclick="window.location.href='sproduct.html'; ">
                 <img src="f1.jpg">
                 <div class="des">
                     <span>adidas</span>
@@ -537,13 +537,11 @@
 
     <script>
         const list = document.querySelectorAll('.list');
-        const list1 = document.querySelector('list1')
         function active() {
             list.forEach((item) => item.classList.remove('active'));
             this.classList.add('active');
         }
         list.forEach((item) => item.addEventListener('click', active));
-        list1.forEach((item) => item.addEventListener('click', active));
     </script>
 
 </body>
