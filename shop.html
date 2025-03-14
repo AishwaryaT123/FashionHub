@@ -8,39 +8,8 @@
     <link rel="stylesheet" href="styles1.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <style>
-    /*Shop*/
-    .page-header{
-        background-image: url(b1.jpg);
-        width: 100%;
-        height: 40vh;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-        padding: 14px;
-    }
-    .page-header h2,
-    .page-header p{
-        color: #fff;
-    }
-    #pagination{
-        text-align: center;
-    }
-    #pagination a{
-       text-decoration: none;
-       background-color: #088178;
-       padding: 15px 20px ;
-       border-radius: unset;
-       color: #fff;
-       font-weight: 600;
-    }
-    #pagination a i{
-        font-size: 16px;
-        font-weight: 600;
-    }
-    </style>
+    <script defer src="script.js"></script>
+    
 </head>
 
 <body>
@@ -66,8 +35,16 @@
                         <span class="text">Home</span>
                     </a>
                 </li>
+                <li class="list active">
+                    <a href="shop.html">
+                        <span class="icon">
+                            <ion-icon name="bag-outline"></ion-icon>
+                        </span>
+                        <span class="text">Shop Now</span>
+                    </a>
+                </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="about.html">
                         <span class="icon">
                             <ion-icon name="book-outline"></ion-icon>
                         </span>
@@ -75,7 +52,7 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="cart1.html">
                         <span class="icon">
                             <ion-icon name="cart-outline"></ion-icon>
                         </span>
@@ -83,11 +60,19 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="contact.html">
                         <span class="icon">
                             <ion-icon name="chatbox-ellipses-outline"></ion-icon>
                         </span>
                         <span class="text">Contact</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="clipboard-outline"></ion-icon>
+                        </span>
+                        <span class="text">Orders</span>
                     </a>
                 </li>
                 <li class="list">
@@ -104,33 +89,35 @@
     </nav>
 
     <div class="page-header">
-            <h2>#StayHome</h2>
-            <p>Save more with coupons & up to 70% off! </p>
+        <h2>#StayHome</h2>
+        <p>Save more with coupons & up to 70% off! </p>
     </div>
-   
+
     <div class="product1" id="product1">
-        
+
         <div class="pro-container">
             <div class="pro" onclick="window.location.href='sproduct.html'; ">
-                <img src="f1.jpg">
+                <img src="f1.jpg" >
                 <div class="des">
                     <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
+                    <h5 >Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
-                    <h4>$78</h4>
+                    <h4 >$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='#' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f1.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -140,19 +127,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f2.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -162,19 +151,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f3.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -184,19 +175,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f4.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -206,19 +199,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f5.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -228,19 +223,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f6.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -250,19 +247,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f7.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -272,21 +271,23 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="f8.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
-       
+
             <div class="pro">
                 <img src="n1.jpg">
                 <div class="des">
@@ -294,19 +295,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n1.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -316,19 +319,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n2.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -338,19 +343,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n3.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -360,19 +367,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n4.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -382,19 +391,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n5.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -404,19 +415,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n6.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -426,19 +439,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n7.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -448,19 +463,21 @@
                     <h5>Cartoon Astronaut T-Shirts</h5>
                     <div class="star">
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                         <a>
-                            <i class="fas fa-star"><ion-icon name="star"></ion-icon></i></a>
+                            <ion-icon name="star"></ion-icon></a>
                     </div>
                     <h4>$78</h4>
                 </div>
-                <a href='#'><i class="fal fa-shopping-cart cart"><ion-icon name="cart-outline"></ion-icon></i></a>
+                <a href='cart1.html' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" 
+                data-price="78" 
+                data-image="n8.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
         </div>
     </div>
@@ -485,7 +502,8 @@
 
     <footer class="section-p1">
         <div class="col">
-            <img class="logo1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
+            <img class="logo1"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
                 alt="">
             <h4>Contact</h4>
             <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
@@ -505,16 +523,16 @@
 
         <div class="col">
             <h4>About</h4>
-            <a href="#">About us</a>
+            <a href="about.html">About us</a>
             <a href="#">Delivery Information</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms & Conditions</a>
-            <a href="#">Contact us</a>
+            <a href="contact.html">Contact us</a>
         </div>
         <div class="col">
             <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
+            <a href="login_registration.html">Sign In</a>
+            <a href="cart.html">View Cart</a>
             <a href="#">My Wishlist</a>
             <a href="#">Track My Order</a>
             <a href="#">Help</a>
@@ -543,6 +561,8 @@
         }
         list.forEach((item) => item.addEventListener('click', active));
     </script>
+
+    
 
 </body>
 
