@@ -8,6 +8,130 @@
     <link rel="stylesheet" href="styles1.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="script.js"></script>
+
+    <style>
+        .cart {
+            width: 60%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .cart-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cart-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .cart-item:hover {
+            background: #eee;
+        }
+
+        .cart-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-details {
+            flex: 1;
+            margin-left: 15px;
+            text-align: left;
+        }
+
+        .cart-details h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .cart-details p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .remove-item {
+            background: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .remove-item:hover {
+            background: #cc0000;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 10px;
+            border-top: 2px solid #ddd;
+        }
+
+        .btn-buy {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-buy:hover {
+            background: #e65c00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cart {
+                width: 90%;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .cart-details {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -31,6 +155,14 @@
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
                         <span class="text">Home</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="shop.html">
+                        <span class="icon">
+                            <ion-icon name="bag-outline"></ion-icon>
+                        </span>
+                        <span class="text">Shop Now</span>
                     </a>
                 </li>
                 <li class="list">
@@ -58,6 +190,14 @@
                     </a>
                 </li>
                 <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="clipboard-outline"></ion-icon>
+                        </span>
+                        <span class="text">Orders</span>
+                    </a>
+                </li>
+                <li class="list">
                     <a href="login_registration.html">
                         <span class="icon">
                             <ion-icon name="log-in-outline"></ion-icon>
@@ -71,82 +211,25 @@
     </nav>
 
     <div id="page-header1">
-            <h2>#let's_talk</h2>
-            <p>LEAVE A MESSAGE, We love to hear from you!</p>
+        <h2>#let's_talk</h2>
+        <p>LEAVE A MESSAGE, We love to hear from you!</p>
     </div>
 
-    <div id="cart" class="section-p1">
-        <table width="100%">
-            <thead>
-                <tr>
-                    <td>Remove</td>
-                    <td>Image</td>
-                    <td>Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Subtotal</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a><ion-icon name="close-circle-outline"></ion-icon></a></td>
-                    <td><img src="f1.jpg"></td>
-                    <td>cartoon Astronaut T-Shirts</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>  
-                </tr>
-                <tr>
-                    <td><a><ion-icon name="close-circle-outline"></ion-icon></a></td>
-                    <td><img src="f2.jpg"></td>
-                    <td>cartoon Astronaut T-Shirts</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>  
-                </tr>
-                <tr>
-                    <td><a><ion-icon name="close-circle-outline"></ion-icon></a></td>
-                    <td><img src="f3.jpg"></td>
-                    <td>cartoon Astronaut T-Shirts</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>  
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content"></div>
 
-    <div id="cart-add" class="section-p1">
-        <div id="coupon">
-            <h3>Apply Coupon</h3>
-            <div>
-                <input type="text" placeholder="Enter your Couppon">
-                <button class="btn">Apply</button>
-            </div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">$0</div>
         </div>
-        <div id="subtotal">
-            <h3>Cart Totals</h3>
-            <table>
-                <tr>
-                    <td>Cart Subtotal</td>
-                    <td>$335</td>
-                </tr>
-                <tr>
-                    <td>Shipping</td>
-                    <td>Free</td>
-                </tr>
-                <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>$335</strong></td>
-                </tr>
-            </table>
-            <button class="btn">Proceed to checkout</button>
-        </div>
+        <button type="button" class="btn-buy">Buy Now</button>
     </div>
 
     <footer class="section-p1">
         <div class="col">
-            <img class="logo1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
+            <img class="logo1"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
                 alt="">
             <h4>Contact</h4>
             <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
@@ -204,6 +287,62 @@
         }
         list.forEach((item) => item.addEventListener('click', active));
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartContent = document.querySelector(".cart-content");
+            const totalPriceElement = document.querySelector(".total-price");
+
+            // Get cart data from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Clear existing content
+            cartContent.innerHTML = "";
+
+            let totalPrice = 0;
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+
+                cartItem.innerHTML = `
+            <img src="${item.image}" class="cart-img">
+            <div class="cart-details">
+                <h4>${item.name}</h4>
+                <p>Price: $${item.price}</p>
+            </div>
+            <button class="remove-item" data-index="${index}">Remove</button>
+        `;
+
+                cartContent.appendChild(cartItem);
+
+                totalPrice += parseFloat(item.price);
+            });
+
+            // Update total price
+            totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+
+            // Remove item from cart
+            document.querySelectorAll(".remove-item").forEach(button => {
+                button.addEventListener("click", function () {
+                    const index = this.getAttribute("data-index");
+
+                    // Remove item from array
+                    cart.splice(index, 1);
+
+                    // Update localStorage
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    // Reload page
+                    location.reload();
+                });
+            });
+        });
+
+    </script>
+
+
+
 
 </body>
 
