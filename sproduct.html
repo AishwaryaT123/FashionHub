@@ -8,6 +8,84 @@
     <link rel="stylesheet" href="styles1.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="script.js"></script>
+    
+    <style>
+        .star-rating {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .star-rating ion-icon {
+            color: gold;
+            margin-right: 2px;
+        }
+
+        .star-rating span {
+            margin-left: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .cart-btn {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: #555;
+        }
+
+        .buy-now {
+            background: #ff4d00;
+        }
+
+        .buy-now:hover {
+            background: #cc3d00;
+        }
+
+        .brand-card {
+            background: linear-gradient(135deg, #f3f3f3, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            border-left: 5px solid #ff6f61;
+        }
+
+        .brand-card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .brand-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .brand-card ul li {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-card ul li::before {
+            color: #ff6f61;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,7 +112,15 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="shop.html">
+                        <span class="icon">
+                            <ion-icon name="bag-outline"></ion-icon>
+                        </span>
+                        <span class="text">Shop Now</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="about.html">
                         <span class="icon">
                             <ion-icon name="book-outline"></ion-icon>
                         </span>
@@ -42,7 +128,7 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="cart1.html">
                         <span class="icon">
                             <ion-icon name="cart-outline"></ion-icon>
                         </span>
@@ -50,11 +136,19 @@
                     </a>
                 </li>
                 <li class="list">
-                    <a href="#">
+                    <a href="contact.html">
                         <span class="icon">
                             <ion-icon name="chatbox-ellipses-outline"></ion-icon>
                         </span>
                         <span class="text">Contact</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="clipboard-outline"></ion-icon>
+                        </span>
+                        <span class="text">Orders</span>
                     </a>
                 </li>
                 <li class="list">
@@ -91,8 +185,16 @@
         </div>
 
         <div class="single-pro-details">
-            <h6>Home / T-Shirts</h6>
+            <h6>T-Shirts</h6>
             <h4> Men's Fashion T-Shirts</h4>
+            <div class="star-rating">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star-half-outline"></ion-icon>
+                <ion-icon name="star-outline"></ion-icon>
+                <span>(4.5/5)</span>
+            </div>
             <h2>$139.00</h2>
             <select>
                 <option>Select Size</option>
@@ -102,12 +204,23 @@
                 <option>Large</option>
             </select>
             <input type="number" value="1">
-            <button class="btn">Add To Cart</button>
+            <button class="cart-btn" data-name="T-Shirts" data-price="$78"  data-image="f1.jpg">Add To Cart</button>
+            <button class="cart-btn buy-now">Buy Now</button>
             <h4>Products Details</h4>
-            <span>The Gildan Ultra Cotton T-Shirts is made from a substantial 6.0 oz. per sq. yd. fabric constructed from 100% cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear. Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a range of colors, it offers it all in the ultimate head-turning package.</span>
+            <span>The Gildan Ultra Cotton T-Shirts is made from a substantial 6.0 oz. per sq. yd. fabric constructed
+                from 100% cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear.
+                Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a range of
+                colors, it offers it all in the ultimate head-turning package.</span>
 
+            <div class="brand-card">
+                <h2>Top Brand: Allen Solly</h2>
+                <ul>
+                    <li>✅ 1.86% positive ratings from 100K+ customers</li>
+                    <li>📦 100K+ recent orders from this brand</li>
+                    <li>⏳ 10+ years on FashionHub</li>
+                </ul>
+            </div>
         </div>
-
     </div>
 
     <div class="product1" id="product1">
@@ -115,91 +228,103 @@
         <p>Summer Collection New Modern Design</p>
         <div class="pro-container">
             <div class="pro">
-                <img src="n1.jpg">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
+                <div onclick="window.location.href='sproduct.html'; ">
+                    <img src="n1.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                        </div>
+                        <h4>$78</h4>
                     </div>
-                    <h4>$78</h4>
                 </div>
-                <a href='#'class="cart"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                data-image="n1.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
-                <img src="n2.jpg">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                           <ion-icon name="star"></ion-icon></a>
+                <div onclick="window.location.href='sproduct.html'; ">
+                    <img src="n2.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                        </div>
+                        <h4>$78</h4>
                     </div>
-                    <h4>$78</h4>
                 </div>
-                <a href='#'class="cart"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                data-image="n2.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
-                <img src="n3.jpg">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                           <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                           <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
+                <div onclick="window.location.href='sproduct.html'; ">
+                    <img src="n3.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                        </div>
+                        <h4>$78</h4>
                     </div>
-                    <h4>$78</h4>
                 </div>
-                <a href='#'class="cart"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                data-image="n3.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
-                <img src="n4.jpg">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Cartoon Astronaut T-Shirts</h5>
-                    <div class="star">
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                            <ion-icon name="star"></ion-icon></a>
-                        <a>
-                           <ion-icon name="star"></ion-icon></a>
-                        <a>
-                           <ion-icon name="star"></ion-icon></a>
+                <div onclick="window.location.href='sproduct.html'; ">
+                    <img src="n4.jpg">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                            <a>
+                                <ion-icon name="star"></ion-icon></a>
+                        </div>
+                        <h4>$78</h4>
                     </div>
-                    <h4>$78</h4>
                 </div>
-                <a href='#'class="cart"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                data-image="n4.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
         </div>
     </div>
@@ -217,7 +342,8 @@
 
     <footer class="section-p1">
         <div class="col">
-            <img class="logo1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
+            <img class="logo1"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8gACZYI-C4TVeHxiFqD_VdwfG63f3Qe6lcT0157lqbEZ07V0CS1Bbgj60Nars1ETHv9U&usqp=CAU"
                 alt="">
             <h4>Contact</h4>
             <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
@@ -237,16 +363,16 @@
 
         <div class="col">
             <h4>About</h4>
-            <a href="#">About us</a>
+            <a href="about.html">About us</a>
             <a href="#">Delivery Information</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms & Conditions</a>
-            <a href="#">Contact us</a>
+            <a href="contact.html">Contact us</a>
         </div>
         <div class="col">
             <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
+            <a href="login_registration.html">Sign In</a>
+            <a href="cart.html">View Cart</a>
             <a href="#">My Wishlist</a>
             <a href="#">Track My Order</a>
             <a href="#">Help</a>
@@ -268,21 +394,24 @@
     </footer>
 
     <script>
-        var MainImg = document.getElementById("MainImg");
-        var smallimg =document.getElementsByClassName("small-img");
+        document.addEventListener("DOMContentLoaded", function () {
+            var MainImg = document.getElementById("MainImg");
+            var smallImgs = document.querySelectorAll(".small-img");
 
-        smallimg[0].onclick = function(){
-            MainImg.src = smallimg[0].src;
-        }
-        smallimg[1].onclick = function(){
-            MainImg.src = smallimg[1].src;
-        }
-        smallimg[2].onclick = function(){
-            MainImg.src = smallimg[2].src;
-        }
-        smallimg[3].onclick = function(){
-            MainImg.src = smallimg[3].src;
-        }
+            smallImgs.forEach(img => {
+                img.addEventListener("click", function () {
+                    MainImg.src = img.src;
+                });
+            });
+
+            document.querySelector(".buy-now").addEventListener("click", function () {
+                alert("Redirecting to Checkout...");
+                window.location.href = "#"; // Change to your checkout page
+            });
+        });
+
+        
+
     </script>
 
     <script>
@@ -292,7 +421,6 @@
             this.classList.add('active');
         }
         list.forEach((item) => item.addEventListener('click', active));
-        
     </script>
 
 </body>
