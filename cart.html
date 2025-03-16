@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="styles1.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script defer src="script.js"></script>
+   
+
 
     <style>
         .cart {
@@ -100,7 +101,7 @@
         }
 
         .btn-buy {
-            background: #ff6600;
+            background: #b93636;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -112,7 +113,7 @@
         }
 
         .btn-buy:hover {
-            background: #e65c00;
+            background: #b93636;
         }
 
         /* Responsive Design */
@@ -174,7 +175,7 @@
                     </a>
                 </li>
                 <li class="list active">
-                    <a href="cart.html">
+                    <a href="cart1.html">
                         <span class="icon">
                             <ion-icon name="cart-outline"></ion-icon>
                         </span>
@@ -292,6 +293,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const cartContent = document.querySelector(".cart-content");
             const totalPriceElement = document.querySelector(".total-price");
+            const buyButton = document.querySelector(".btn-buy");
 
             // Get cart data from localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -309,14 +311,15 @@
             <img src="${item.image}" class="cart-img">
             <div class="cart-details">
                 <h4>${item.name}</h4>
-                <p>Price: $${item.price}</p>
+                <p>Price: ${item.price}</p>
             </div>
             <button class="remove-item" data-index="${index}">Remove</button>
         `;
 
-                cartContent.appendChild(cartItem);
+            cartContent.appendChild(cartItem);
 
-                totalPrice += parseFloat(item.price);
+
+            totalPrice += parseFloat(item.price);
             });
 
             // Update total price
@@ -337,12 +340,23 @@
                     location.reload();
                 });
             });
+
+            buyButton.addEventListener("click", function () {
+                if (cart.length === 0) {
+                    alert("Your cart is empty! Add some items before proceeding.");
+                    return;
+                }
+
+                // Here, you can redirect to a checkout page or process the purchase
+                alert("Thank you for your purchase! Your order has been placed.");
+
+                // Clear cart after successful purchase
+                localStorage.removeItem("cart");
+                location.reload();
+            });
         });
 
     </script>
-
-
-
 
 </body>
 
