@@ -29,5 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
             alert("Product added to cart!");
         });
+    }); 
+    
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const addToCartButtons = document.querySelectorAll(".cart-btn1");
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            let name = this.getAttribute("data-name");
+            let price = this.getAttribute("data-price").replace("$", ""); 
+            let image = this.getAttribute("data-image");
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Add new product to cart
+            cart.push({ name, price, image });
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+        });
     });
 });
+
+
