@@ -9,7 +9,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script defer src="script.js"></script>
-    
+
     <style>
         .star-rating {
             display: flex;
@@ -42,6 +42,7 @@
         .cart-btn1:hover {
             background: #555;
         }
+
         .button {
             background: black;
             color: white;
@@ -55,7 +56,7 @@
         .button:hover {
             background: #555;
         }
-        
+
         .brand-card {
             background: linear-gradient(135deg, #f3f3f3, #ffffff);
             padding: 20px;
@@ -89,6 +90,75 @@
             color: #ff6f61;
             font-size: 18px;
             margin-right: 8px;
+        }
+
+        /*Review section*/
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .review-form,
+        .review-display {
+            width: 48%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-form h2,
+        .review-display h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .review-form input,
+        .review-form select,
+        .review-form textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .review-form button {
+            width: 100%;
+            background: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .review-form button:hover {
+            background: #444;
+        }
+
+        .review-item {
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #FFD700;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-item h4 {
+            margin: 0;
+            color: #222;
+        }
+
+        .review-item span {
+            color: gold;
+        }
+
+        .review-item p {
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -209,7 +279,8 @@
                 <option>Large</option>
             </select>
             <input type="number" value="1">
-            <button class="cart-btn1" data-name="Cartoon Astronaut T-Shirts" data-price="$78"  data-image="f1.jpg">Add To Cart</button>
+            <button class="cart-btn1" data-name="Cartoon Astronaut T-Shirts" data-price="$78" data-image="f1.jpg">Add To
+                Cart</button>
             <button class="button">Buy Now</button>
             <h4>Products Details</h4>
             <span>The Gildan Ultra Cotton T-Shirts is made from a substantial 6.0 oz. per sq. yd. fabric constructed
@@ -253,8 +324,8 @@
                         <h4>$78</h4>
                     </div>
                 </div>
-                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
-                data-image="n1.jpg"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                    data-image="n1.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -278,8 +349,8 @@
                         <h4>$78</h4>
                     </div>
                 </div>
-                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
-                data-image="n2.jpg"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                    data-image="n2.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -303,8 +374,8 @@
                         <h4>$78</h4>
                     </div>
                 </div>
-                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
-                data-image="n3.jpg"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                    data-image="n3.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
 
             <div class="pro">
@@ -328,11 +399,37 @@
                         <h4>$78</h4>
                     </div>
                 </div>
-                <a href='#' class="cart-btn"  data-name="Cartoon Astronaut T-Shirts" data-price="78"
-                data-image="n4.jpg"><ion-icon name="cart-outline"></ion-icon></a>
+                <a href='#' class="cart-btn" data-name="Cartoon Astronaut T-Shirts" data-price="78"
+                    data-image="n4.jpg"><ion-icon name="cart-outline"></ion-icon></a>
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <!-- Left Side: User Review Form -->
+        <div class="review-form">
+            <h2>Leave a Review</h2>
+            <input type="text" id="name" placeholder="Your Name">
+            <select id="rating">
+                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                <option value="4">⭐⭐⭐⭐ (4)</option>
+                <option value="3">⭐⭐⭐ (3)</option>
+                <option value="2">⭐⭐ (2)</option>
+                <option value="1">⭐ (1)</option>
+            </select>
+            <textarea id="review" placeholder="Write your review..."></textarea>
+            <button onclick="submitReview()">Submit</button>
+        </div>
+
+        <!-- Right Side: Display Customer Reviews -->
+        <div class="review-display">
+            <h2>Customer Reviews</h2>
+            <div id="reviews">
+                <p>No reviews yet. Be the first to review!</p>
+            </div>
+        </div>
+    </div>
+
 
     <section class="newsletter">
         <div class="newstext">
@@ -409,10 +506,10 @@
                 });
             });
             document.querySelector(".button").addEventListener("click", function () {
-                    alert("Redirecting to Checkout...");
-                    window.location.href = "#"; // Change to your checkout page
-                });
- 
+                alert("Redirecting to Checkout...");
+                window.location.href = "#"; // Change to your checkout page
+            });
+
         });
 
     </script>
