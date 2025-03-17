@@ -54,4 +54,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function submitReview() {
+    let name = document.getElementById("name").value;
+    let rating = document.getElementById("rating").value;
+    let review = document.getElementById("review").value;
+    let reviewContainer = document.getElementById("reviews");
 
+    if (name === "" || review === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let stars = "⭐".repeat(rating);
+
+    let reviewHTML = `
+        <div class="review-item">
+            <h4>${name} <span>${stars}</span></h4>
+            <p>${review}</p>
+        </div>
+    `;
+
+    // If it's the first review, remove default text
+    if (reviewContainer.innerHTML.includes("No reviews yet")) {
+        reviewContainer.innerHTML = "";
+    }
+
+    reviewContainer.innerHTML += reviewHTML;
+
+    // Clear input fields after submission
+    document.getElementById("name").value = "";
+    document.getElementById("rating").value = "5";
+    document.getElementById("review").value = "";
+}
