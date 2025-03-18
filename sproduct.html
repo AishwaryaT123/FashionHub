@@ -160,6 +160,15 @@
         .review-item p {
             margin-top: 5px;
         }
+
+        #overall-rating {
+            background: #ff5f3b;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -424,6 +433,9 @@
         <!-- Right Side: Display Customer Reviews -->
         <div class="review-display">
             <h2>Customer Reviews</h2>
+            <div id="overall-rating">
+                <h3>Overall Rating: <span id="average-rating">N/A</span></h3>
+            </div>
             <div id="reviews">
                 <p>No reviews yet. Be the first to review!</p>
             </div>
