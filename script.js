@@ -54,35 +54,58 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function submitReview() {
-    let name = document.getElementById("name").value;
-    let rating = document.getElementById("rating").value;
-    let review = document.getElementById("review").value;
-    let reviewContainer = document.getElementById("reviews");
+const API_URL = "http://localhost:5000/reviews";
 
-    if (name === "" || review === "") {
-        alert("Please fill in all fields.");
+async function fetchReviews() {
+    let response = await fetch(API_URL);
+    let reviews = await response.json();
+
+    let reviewContainer = document.getElementById("reviews");
+    let overallRatingContainer = document.getElementById("average-rating");
+
+    if (reviews.length === 0) {
+        reviewContainer.innerHTML = "<p>No reviews yet. Be the first to review!</p>";
+        overallRatingContainer.innerHTML = "N/A";
         return;
     }
 
-    let stars = "⭐".repeat(rating);
+    let ratings = reviews.map(review => review.rating);
+    let sum = ratings.reduce((a, b) => a + b, 0);
+    let average = (sum / ratings.length).toFixed(1);
+    let overallStars = "⭐".repeat(Math.round(average));
 
-    let reviewHTML = `
+    overallRatingContainer.innerHTML = `${overallStars} (${average})`;
+
+    reviewContainer.innerHTML = reviews.map(review => `
         <div class="review-item">
-            <h4>${name} <span>${stars}</span></h4>
-            <p>${review}</p>
+            <h4>${review.name} <span>${"⭐".repeat(review.rating)}</span></h4>
+            <p>${review.review}</p>
         </div>
-    `;
+    `).join("");
+}
 
-    // If it's the first review, remove default text
-    if (reviewContainer.innerHTML.includes("No reviews yet")) {
-        reviewContainer.innerHTML = "";
+async function submitReview() {
+    let name = document.getElementById("name").value;
+    let rating = parseInt(document.getElementById("rating").value);
+    let review = document.getElementById("review").value;
+
+    if (!name || !review) {
+        alert("Please enter your name and review.");
+        return;
     }
 
-    reviewContainer.innerHTML += reviewHTML;
+    let response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, rating, review }),
+    });
 
-    // Clear input fields after submission
+    let result = await response.json();
+    alert(result.message);
     document.getElementById("name").value = "";
     document.getElementById("rating").value = "5";
     document.getElementById("review").value = "";
+    fetchReviews();
 }
+
+document.addEventListener("DOMContentLoaded", fetchReviews);
