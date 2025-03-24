@@ -1,3 +1,4 @@
+//For cart
 document.addEventListener("DOMContentLoaded", function () {
     // Select all "Add to Cart" buttons
     const cartButtons = document.querySelectorAll(".cart-btn");
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//For review
 const API_URL = "http://localhost:5000/reviews";
 
 async function fetchReviews() {
@@ -109,3 +111,49 @@ async function submitReview() {
 }
 
 document.addEventListener("DOMContentLoaded", fetchReviews);
+
+//For contact form
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".btn").addEventListener("click", async (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form values
+        const name = document.querySelector('input[placeholder="Your Name"]').value.trim();
+        const email = document.querySelector('input[placeholder="E-mail"]').value.trim();
+        const subject = document.querySelector('input[placeholder="Subject"]').value.trim();
+        const message = document.querySelector('textarea[placeholder="Your Message"]').value.trim();
+
+        // Validate input fields
+        if (!name || !email || !subject || !message) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        try {
+            // Send data to the backend
+            const response = await fetch("http://localhost:5000/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, subject, message }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message); // Show success message
+                // Clear form fields
+                document.querySelector('input[placeholder="Your Name"]').value = "";
+                document.querySelector('input[placeholder="E-mail"]').value = "";
+                document.querySelector('input[placeholder="Subject"]').value = "";
+                document.querySelector('textarea[placeholder="Your Message"]').value = "";
+            } else {
+                alert("Error: " + result.error);
+            }
+        } catch (error) {
+            alert("Failed to send message. Please try again.");
+            console.error(error);
+        }
+    });
+});
+
+
