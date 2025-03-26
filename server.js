@@ -65,6 +65,29 @@ app.post("/api/contact", async (req, res) => {
     }
 });
 
+// Email Schema
+const emailSchema = new mongoose.Schema({
+    email: { type: String, required: true, unique: true },
+  });
+  
+  const Email = mongoose.model("Email", emailSchema);
+  
+  // Newsletter Signup API
+  app.post("/subscribe", async (req, res) => {
+    try {
+      const { email } = req.body;
+      if (!email) return res.status(400).json({ message: "Email is required" });
+  
+      const newEmail = new Email({ email });
+      await newEmail.save();
+      res.status(201).json({ message: "Subscribed successfully!" });
+    } catch (err) {
+      res.status(500).json({ message: "Error subscribing", error: err.message });
+    }
+  });
+  
+
+
 // Start Server
 app.listen(5000, () => {
     console.log("Server running on port 5000");
