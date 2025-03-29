@@ -6,18 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FashionHub Navbar</title>
     <link rel="stylesheet" href="styles1.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script defer src="script.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script defer src="script2.js"></script>
     <style>
-        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
-        h2 { text-align: center; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: bold; }
-        input, select { width: 100%; padding: 8px; margin-top: 5px; }
-        .product-details { border-top: 1px solid #ccc; margin-top: 20px; padding-top: 15px; }
-        .payment-methods { margin-top: 15px; }
-        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .checkout-container {
+            background: rgb(194, 209, 253);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 420px;
+            margin-left: 500px;
+            margin-top: 30px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h2,
+        h3 {
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .order-summary,
+        .shipping-details,
+        .payment-method,
+        .apply-coupon {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .order-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+        }
+
+        .input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: border 0.3s;
+        }
+
+        .input[type="text"]:focus {
+            border-color: #73affe;
+            outline: none;
+        }
+
+        .btn4 {
+            width: 50%;
+            padding: 12px;
+            background: linear-gradient(to right, #519bfc, #ff74ae);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn4:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
+        }
+        .btn5{
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right,  #519bfc, #ff74ae);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn5:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
+        }
     </style>
 </head>
 
@@ -100,6 +193,59 @@
     <div id="page-header1">
         <h2>#let's_talk</h2>
         <p>LEAVE A MESSAGE, We love to hear from you!</p>
+    </div>
+
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="order-item">
+                <img src="f1.jpg" alt="Product Image">
+                <div class="item-details">
+                    <p><strong>Product Name</strong></p>
+                    <p>Price: $50</p>
+                    <p>Quantity: <span id="quantity">1</span></p>
+                </div>
+            </div>
+            <p><strong>Total: $<span id="total-price">50</span></strong></p>
+        </div>
+
+        <!-- Shipping Details -->
+        <div class="shipping-details">
+            <h3>Shipping Details</h3>
+            <form id="checkout-form">
+                <label for="name">Full Name:</label>
+                <input class="input" type="text" id="name" required>
+
+                <label for="address">Address:</label>
+                <input class="input" type="text" id="address" required>
+
+                <label for="city">City:</label>
+                <input class="input" type="text" id="city" required>
+
+                <label for="zip">ZIP Code:</label>
+                <input class="input" type="text" id="zip" required>
+            </form>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="payment-method">
+            <h3>Payment Method</h3>
+            <label><input class="input" type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
+            <label><input class="input" type="radio" name="payment" value="upi"> UPI</label>
+            <label><input class="input" type="radio" name="payment" value="cod"> Cash on Delivery</label>
+        </div>
+
+        <!-- Apply Coupon -->
+        <div class="apply-coupon">
+            <input class="input" type="text" id="coupon" placeholder="Enter coupon code">
+            <button class="btn4" onclick="applyCoupon()">Apply</button>
+        </div>
+
+        <!-- Confirm Order Button -->
+        <button class="btn5" class="confirm-order" onclick="submitOrder()">Confirm Order</button>
     </div>
 
     <section class="newsletter">
