@@ -1191,13 +1191,14 @@ footer .copyright{
         }
 
 //Checkout 
- .checkout-container {
+
+        .checkout-container {
             background: rgb(194, 209, 253);
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            width: 420px;
-            margin-left: 500px;
+            width: 600px;
+            margin-left: 450px;
             margin-top: 30px;
             animation: fadeIn 0.8s ease-in-out;
         }
@@ -1217,13 +1218,25 @@ footer .copyright{
         h2,
         h3 {
             text-align: center;
-            color: #333;
+            color: #081e57;
             font-weight: 600;
+            padding: 10px 5px;
+        }
+        .order-summary{
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            line-height: 27px;
+        }
+        .order-summary p{
+            margin-left: 10px;
         }
 
-        .order-summary,
+
+        
         .shipping-details,
-        .payment-method,
         .apply-coupon {
             margin-bottom: 20px;
             padding: 10px;
@@ -1231,23 +1244,42 @@ footer .copyright{
             background: rgba(255, 255, 255, 0.6);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
+        .shipping-details label{
+            margin-left: 15px;
+        }
+        
+
+        .payment-method{
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .payment-method label{
+            display: flex;
+            line-height: 27px;
+            margin-left: 15px;
+        }
 
         .order-item {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 25px;
         }
 
         .order-item img {
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             border-radius: 10px;
+            margin-left: 10px;
         }
 
         .input[type="text"] {
-            width: 100%;
+            width: 95%;
             padding: 10px;
             margin: 5px 0;
+            margin-left: 11px;
             border: 2px solid #ccc;
             border-radius: 8px;
             transition: border 0.3s;
@@ -1269,15 +1301,18 @@ footer .copyright{
             font-size: 13px;
             font-weight: 500;
             transition: transform 0.2s, box-shadow 0.2s;
+            margin-left: 11px;
         }
+
         .btn4:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
         }
-        .btn5{
+
+        .btn5 {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(to right,  #519bfc, #ff74ae);
+            background: linear-gradient(to right, #519bfc, #ff74ae);
             color: white;
             border: none;
             border-radius: 8px;
@@ -1291,7 +1326,4 @@ footer .copyright{
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
         }
-
-
-
-
+    
