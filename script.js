@@ -156,4 +156,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//for Checkout page
+/* script.js */
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".confirm-order").addEventListener("click", submitOrder);
+});
+
+function applyCoupon() {
+    let coupon = document.getElementById("coupon").value.trim();
+    let totalPriceElement = document.getElementById("total-price");
+    let totalPrice = parseFloat(totalPriceElement.textContent);
+    
+    if (coupon && coupon === "FASHION10") {
+        let discount = totalPrice * 0.10;
+        totalPrice -= discount;
+        alert("Coupon Applied! 10% Discount");
+    }
+    
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+}
+
+function submitOrder() {
+    let name = document.getElementById("name").value;
+    let address = document.getElementById("address").value;
+    let city = document.getElementById("city").value;
+    let zip = document.getElementById("zip").value;
+    let paymentMethod = document.querySelector("input[name='payment']:checked").value;
+    let totalPrice = document.getElementById("total-price").textContent;
+    
+    if (!name || !address || !city || !zip) {
+        alert("Please fill in all shipping details.");
+        return;
+    }
+
+    let orderDetails = {
+        name, address, city, zip, paymentMethod, totalPrice
+    };
+
+    fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderDetails)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Order Placed Successfully!");
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+
 
