@@ -9,109 +9,8 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <script defer src="script2.js"></script>
-    <style>
-        .checkout-container {
-            background: rgb(194, 209, 253);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            width: 420px;
-            margin-left: 500px;
-            margin-top: 30px;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        h2,
-        h3 {
-            text-align: center;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .order-summary,
-        .shipping-details,
-        .payment-method,
-        .apply-coupon {
-            margin-bottom: 20px;
-            padding: 10px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .order-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .order-item img {
-            width: 70px;
-            height: 70px;
-            border-radius: 10px;
-        }
-
-        .input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            transition: border 0.3s;
-        }
-
-        .input[type="text"]:focus {
-            border-color: #73affe;
-            outline: none;
-        }
-
-        .btn4 {
-            width: 50%;
-            padding: 12px;
-            background: linear-gradient(to right, #519bfc, #ff74ae);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .btn4:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
-        }
-        .btn5{
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(to right,  #519bfc, #ff74ae);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn5:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
-        }
-    </style>
+    <script defer src="script.js"></script>
+   
 </head>
 
 <body>
@@ -202,14 +101,15 @@
         <div class="order-summary">
             <h3>Order Summary</h3>
             <div class="order-item">
-                <img src="f1.jpg" alt="Product Image">
+                <img id="product-image" src="" alt="Product Image">
                 <div class="item-details">
-                    <p><strong>Product Name</strong></p>
-                    <p>Price: $50</p>
+                    <p><strong id="product-name">Product Name</strong></p>
+                    <p>Price: $<span id="product-price">0</span></p>
                     <p>Quantity: <span id="quantity">1</span></p>
+                    <p>Size: <span id="product-size"></span></p>
                 </div>
             </div>
-            <p><strong>Total: $<span id="total-price">50</span></strong></p>
+            <p><strong>Total: $<span id="total-price">0</span></strong></p>
         </div>
 
         <!-- Shipping Details -->
@@ -233,8 +133,8 @@
         <!-- Payment Method -->
         <div class="payment-method">
             <h3>Payment Method</h3>
-            <label><input class="input" type="radio" name="payment" value="card" checked> Credit/Debit Card</label>
-            <label><input class="input" type="radio" name="payment" value="upi"> UPI</label>
+            <label><input class="input" type="radio" name="payment" value="card" checked> PhonePay</label>
+            <label><input class="input" type="radio" name="payment" value="upi"> GPay</label>
             <label><input class="input" type="radio" name="payment" value="cod"> Cash on Delivery</label>
         </div>
 
@@ -321,6 +221,22 @@
         list.forEach((item) => item.addEventListener('click', active));
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let orderSummary = JSON.parse(localStorage.getItem("orderSummary"));
+    
+            if (orderSummary) {
+                document.getElementById("product-name").textContent = orderSummary.name;
+                document.getElementById("product-price").textContent = orderSummary.price.replace('$', '');
+                document.getElementById("product-size").textContent = orderSummary.size;
+                document.getElementById("quantity").textContent = orderSummary.quantity;
+                document.getElementById("total-price").textContent = (parseFloat(orderSummary.price.replace('$', '')) * parseInt(orderSummary.quantity)).toFixed(2);
+                document.getElementById("product-image").src = orderSummary.image;
+            } else {
+                document.querySelector(".order-summary").innerHTML = "<p>No order details found.</p>";
+            }
+        });
+    </script>
 </body>
 
 </html>
